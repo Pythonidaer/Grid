@@ -1,0 +1,625 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: sienna;
+}
+
+/* 
+Keywords used:
+parent: display: grid;
+parent: grid-template-columns;
+parent: grid-template-rows;
+child: grid-column-start; by default will span one column
+child: grid-column-end; can be a smaller number than the start;
+child: negative values allow you to count grid lines from the right instead of the leftgrid
+child: span only works with positive values; try grid-column-end: span 2;
+child: grid-column is a shorthand property for start and end;
+child: grid-area accepts four values separated by slashes: row start, column start, row end, column end
+Note: grid-area overlaps with grid-area, but it doesn't appear to overlap with grid-column or grid-row; it pushes them down.
+child: by default, all grid items have an order of 0; can be set to any positive or negative value, similar to z-index;
+parent: grid-template-columns: repeat is a function; for instance: repeat(15, 1fr)
+parent: grid-template-columns and rows accept various
+parent: grid-template is a shorthand property that combines row and columns.
+
+*/
+
+.grandparent {
+    display: flex;
+    /* flex-direction: row; */
+    height: 100vh;
+    align-items: center;
+}
+
+/* .box-mother {
+    height: 300px;
+    width: 300px;
+    background: skyblue;
+    margin: .5rem;
+    display: inline-grid;
+    grid-template-columns: 20% 20% 20% 20% 20%; creates 5 columns; each set to 20% of the overall width
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-rows: repeat(5, 20%);
+} */
+/* I could make a watermelon pixel art! https://projects.raspberrypi.org/en/projects/pixel-art-unplugged/1 */
+.box-father {
+    height: 300px;
+    width: 300px;
+    background: slateblue;
+    margin: .5rem;
+    display: grid;
+    margin: 0 auto;
+    /* grid-template-columns: 50% 25% 25%; creates 5 columns; each set to 20% of the overall width */
+    /* 
+    another example:
+    grid-template-columns: 50px repeat(3, 1fr) 50px; */
+    /* grid-template-columns: repeat(15, 1fr); */
+    /* grid-template-rows: 25% 50% 25%; */
+    /* grid-template-rows: 50px 0 0 0 1fr; wtf */
+    /* grid-template-rows: repeat(15, 1fr); */
+    /* grid-template: 1fr 50px / 20% 5fr; */
+    grid-template: repeat(15, 1fr) / repeat(15, 1fr); /* rows first then columns */
+}
+
+/* 
+Watermelon colors
+white background: #fff;
+light green: #94C11F;
+dark green: #0B8E36;
+watermelon red: #E7302A;
+pink: #F5ABB2;
+black: #000;
+
+
+
+*/
+
+.box-father > div {
+    background: #fff;
+    border-right: 1px solid #DBDBDB;
+}
+
+.box-elevenc {
+    background: #94C11F !important;
+    grid-area: 2 / 11 / 3 / 12;
+}
+
+.box-twelvec {
+    background: #0B8E36 !important;
+    grid-area: 2 / 12 / 3 / 13;
+}
+
+.box-tend {
+    background: #E7302A !important;
+    grid-area: 3 / 10 / 4 / 11;
+}
+
+.box-elevend {
+    background: #F5ABB2 !important;
+    grid-area: 3 / 11 / 4 / 12;
+}
+
+.box-twelved {
+    background: #94C11F !important;
+    grid-area: 3 / 12 / 4 / 13;
+}
+
+.box-thirteend {
+    background: #0B8E36 !important;
+    grid-area: 3 / 13 / 4 / 14;
+}
+
+.box-ninee {
+    background: #E7302A !important;
+    grid-area: 4 / 9 / 5 / 10;
+}
+
+.box-tene {
+    background: #E7302A !important;
+    grid-area: 4 / 10 / 5 / 11;
+}
+
+.box-elevene {
+    background: #F5ABB2 !important;
+    grid-area: 4 / 11 / 5 / 12;
+}
+
+.box-twelvee {
+    background: #F5ABB2 !important;
+    grid-area: 4 / 12 / 5 / 13;
+}
+
+.box-thirteene {
+    background: #94C11F !important;
+    grid-area: 4 / 13 / 5 / 14;
+}
+
+.box-fourteene {
+    background: #0B8E36 !important;
+    grid-area: 4 / 14 / 5 / 15;
+}
+
+.box-eightf {
+    background: #E7302A !important;
+    grid-area: 5 / 8 / 6 / 9;
+}
+
+.box-ninef {
+    background: #E7302A !important;
+    grid-area: 5 / 9 / 6 / 10;
+}
+
+.box-tenf {
+    background: #000 !important;
+    grid-area: 5 / 10 / 6 / 11;
+}
+
+.box-elevenf {
+    background: #E7302A !important;
+    grid-area: 5 / 11 / 6 / 12;
+}
+
+.box-twelvef {
+    background: #F5ABB2 !important;
+    grid-area: 5 / 12 / 6 / 13;
+}
+
+.box-thirteenf {
+    background: #94C11F !important;
+    grid-area: 5 / 13 / 6 / 14;
+}
+
+.box-fourteenf {
+    background: #0B8E36 !important;
+    grid-area: 5 / 14 / 6 / 15;
+}
+
+.box-seveng {
+    background: #E7302A !important;
+    grid-area: 6 / 7 / 7 / 8;
+}
+
+.box-eightg {
+    background: #E7302A !important;
+    grid-area: 6 / 8 / 7 / 9;
+}
+
+.box-nineg {
+    background: #E7302A !important;
+    grid-area: 6 / 9 / 7 / 10;
+}
+
+.box-teng {
+    background: #E7302A !important;
+    grid-area: 6 / 10 / 7 / 11;
+}
+
+.box-eleveng {
+    background: #E7302A !important;
+    grid-area: 6 / 11 / 7 / 12;
+}
+
+.box-twelveg {
+    background: #F5ABB2 !important;
+    grid-area: 6 / 12 / 7 / 13;
+}
+
+.box-thirteeng {
+    background: #94C11F !important;
+    grid-area: 6 / 13 / 7 / 14;
+}
+
+.box-fourteeng {
+    background: #0B8E36 !important;
+    grid-area: 6 / 14 / 7 / 15;
+}
+
+.box-sixh {
+    background: #E7302A !important;
+    grid-area: 7 / 6 / 8 / 7;
+}
+
+.box-sevenh {
+    background: #E7302A !important;
+    grid-area: 7 / 7 / 8 / 8;
+}
+
+.box-eighth {
+    background: #E7302A !important;
+    grid-area: 7 / 8 / 8 / 9;
+}
+
+.box-nineh {
+    background: #000 !important;
+    grid-area: 7 / 9 / 8 / 10;
+}
+
+.box-elevenh {
+    background: #E7302A !important;
+    grid-area: 7 / 10 / 8 / 11;
+}
+
+.box-twelveh {
+    background: #E7302A !important;
+    grid-area: 7 / 11 / 8 / 12;
+}
+
+.box-thirteenh {
+    background: #F5ABB2 !important;
+    grid-area: 7 / 12 / 8 / 13;
+}
+
+.box-fourteenh {
+    background: #94C11F !important;
+    grid-area: 7 / 13 / 8 / 14;
+}
+
+.box-fifteenh {
+    background: #0B8E36 !important;
+    grid-area: 7 / 14 / 8 / 15;
+}
+
+.box-fivei {
+    background: #E7302A !important;
+    grid-area: 8 / 5 / 9 / 6;
+}
+
+.box-sixi {
+    background: #E7302A !important;
+    grid-area: 8 / 6 / 9 / 7;
+}
+.box-seveni {
+    background: #E7302A !important;
+    grid-area: 8 / 7 / 9 / 8;
+}
+.box-eighti {
+    background: #E7302A !important;
+    grid-area: 8 / 8 / 9 / 9;
+}
+.box-ninei {
+    background: #E7302A !important;
+    grid-area: 8 / 9 / 9 / 10;
+}
+.box-teni {
+    background: #E7302A !important;
+    grid-area: 8 / 10 / 9 / 11;
+}
+.box-eleveni {
+    background: #E7302A !important;
+    grid-area: 8 / 11 / 9 / 12;
+}
+.box-twelvei {
+    background: #F5ABB2 !important;
+    grid-area: 8 / 12 / 9 / 13;
+}
+.box-thirteeni {
+    background: #94C11F !important;
+    grid-area: 8 / 13 / 9 / 14;
+}
+.box-fourteeni {
+    background: #0B8E36 !important;
+    grid-area: 8 / 14 / 9 / 15;
+}
+
+.box-fourj {
+    background: #E7302A !important;
+    grid-area: 9 / 4 / 10 / 5;
+}
+
+.box-fivej {
+    background: #E7302A !important;
+    grid-area: 9 / 5 / 10 / 6;
+}
+
+.box-sixj {
+    background: #E7302A !important;
+    grid-area: 9 / 6 / 10 / 7;
+}
+
+.box-sevenj {
+    background: #000 !important;
+    grid-area: 9 / 7 / 10 / 8;
+}
+.box-eightj {
+    background: #E7302A !important;
+    grid-area: 9 / 8 / 10 / 9;
+}
+.box-ninej {
+    background: #E7302A !important;
+    grid-area: 9 / 9 / 10 / 10;
+}
+.box-tenj {
+    background: #E7302A !important;
+    grid-area: 9 / 10 / 10 / 11;
+}
+.box-elevenj {
+    background: #F5ABB2  !important;
+    grid-area: 9 / 11 / 10 / 12;
+}
+.box-twelvej {
+    background: #F5ABB2  !important;
+    grid-area: 9 / 12 / 10 / 13;
+}
+.box-thirteenj {
+    background: #94C11F !important;
+    grid-area: 9 / 13 / 10 / 14;
+}
+.box-fourteenj {
+    background: #0B8E36 !important;
+    grid-area: 9 / 14 / 10 / 15;
+}
+
+.box-threek {
+    background: #E7302A !important;
+    grid-area: 10 / 3 / 11 / 4;
+}
+.box-fourk {
+    background: #E7302A !important;
+    grid-area: 10 / 4 / 11 / 5;
+}
+.box-fivek {
+    background: #000 !important;
+    grid-area: 10 / 5 / 11 / 6;
+}
+.box-sixk {
+    background: #E7302A !important;
+    grid-area: 10 / 6 / 11 / 7;
+}
+.box-sevenk {
+    background:#E7302A !important;
+    grid-area: 10 / 7 / 11 / 8;
+}
+.box-eightk {
+    background: #E7302A !important;
+    grid-area: 10 / 8 / 11 / 9;
+}
+.box-ninek {
+    background: #E7302A !important;
+    grid-area: 10 / 9 / 11 / 10;
+}
+.box-tenk {
+    background: #E7302A !important;
+    grid-area: 10 / 10 / 11 / 11;
+}
+.box-elevenk {
+    background: #F5ABB2 !important;
+    grid-area: 10 / 11 / 11 / 12;
+}
+.box-twelvek {
+    background: #94C11F !important;
+    grid-area: 10 / 12 / 11 / 13;
+}
+.box-thirteenk {
+    background: #0B8E36 !important;
+    grid-area: 10 / 13 / 11 / 14;
+}
+
+.box-twol {
+    background: #94C11F !important;
+    grid-area: 11 / 2 / 12 / 3;
+}
+
+.box-threel {
+    background: #F5ABB2 !important;
+    grid-area: 11 / 3 / 12 / 4;
+}
+
+.box-fourl {
+    background: #F5ABB2 !important;
+    grid-area: 11 / 4 / 12 / 5;
+}
+.box-fivel {
+    background: #E7302A !important;
+    grid-area: 11 / 5 / 12 / 6;
+}
+.box-sixl {
+    background: #E7302A !important;
+    grid-area: 11 / 6 / 12 / 7;
+}
+.box-sevenl {
+    background: #E7302A !important;
+    grid-area: 11 / 7 / 12 / 8;
+}
+.box-eightl {
+    background: #E7302A !important;
+    grid-area: 11 / 8 / 12 / 9;
+}
+.box-ninel {
+    background:#F5ABB2 !important;
+    grid-area: 11 / 9 / 12 / 9;
+}
+.box-tenl {
+    background: #F5ABB2 !important;
+    grid-area: 11 / 10 / 12 / 11;
+}
+.box-elevenl {
+    background: #94C11F !important;
+    grid-area: 11 / 11 / 12 / 12;
+}
+.box-twelvel {
+    background: #0B8E36 !important;
+    grid-area: 11 / 12 / 12 / 13;
+}
+.box-thirteenl {
+    background: #0B8E36 !important;
+    grid-area: 11 / 13 / 12 / 14;
+}
+
+.box-twom {
+    background: #0B8E36 !important;
+    grid-area: 12 / 2 / 13 / 3;
+}
+.box-threem {
+    background: #94C11F !important;
+    grid-area: 12 / 3 / 13 / 4;
+}
+.box-fourm {
+    background: #F5ABB2 !important;
+    grid-area: 12 / 4 / 13 / 4;
+}
+.box-fivem {
+    background: #F5ABB2 !important;
+    grid-area: 12 / 5 / 13 / 6;
+}
+.box-sixm {
+    background: #F5ABB2 !important;
+    grid-area: 12 / 6 / 13 / 7;
+}
+.box-sevenm {
+    background: #F5ABB2 !important;
+    grid-area: 12 / 7 / 13 / 8;
+}
+.box-eightm {
+    background: #F5ABB2 !important;
+    grid-area: 12 / 8 / 13 / 9;
+}
+.box-ninem {
+    background: #F5ABB2 !important;
+    grid-area: 12 / 9 / 13 / 10;
+}
+.box-tenm {
+    background: #94C11F !important;
+    grid-area: 12 / 10 / 13 / 11;
+}
+.box-elevenm {
+    background: #0B8E36 !important;
+    grid-area: 12 / 11 / 13 / 12;
+}
+.box-twelvem {
+    background: #0B8E36 !important;
+    grid-area: 12 / 12 / 13 / 13;
+}
+.box-threen {
+    background: #0B8E36 !important;
+    grid-area: 13 / 3 / 14 / 4;
+}
+.box-fourn {
+    background: #94C11F !important;
+    grid-area: 13 / 4 / 14 / 5;
+}
+.box-fiven {
+    background: #94C11F !important;
+    grid-area: 13 / 5 / 14 / 6;
+}
+.box-sixn {
+    background: #94C11F !important;
+    grid-area: 13 / 6 / 14 / 7;
+}
+.box-sevenn {
+    background: #94C11F !important;
+    grid-area: 13 / 7 / 14 / 8;
+}
+.box-eightn {
+    background: #94C11F !important;
+    grid-area: 13 / 8 / 14 / 9;
+}
+.box-ninen {
+    background: #94C11F !important;
+    grid-area: 13 / 9 / 14 / 10;
+}
+.box-tenn {
+    background: #0B8E36  !important;
+    grid-area: 13 / 10 / 14 / 11;
+}
+
+.box-elevenn {
+    background: #0B8E36  !important;
+    grid-area: 13 / 11 / 14 / 12;
+}
+.box-fouro {
+    background: #0B8E36  !important;
+    grid-area: 14 / 4 / 15 / 5;
+}
+.box-fiveo {
+    background: #0B8E36  !important;
+    grid-area: 14 / 5 / 15 / 6;
+}
+.box-sixo {
+    background: #0B8E36  !important;
+    grid-area: 14 / 6 / 15 / 7;
+}
+.box-seveno {
+    background: #0B8E36  !important;
+    grid-area: 14 / 7 / 15 / 8;
+}
+.box-eighto {
+    background: #0B8E36  !important;
+    grid-area: 14 / 8 / 15 / 9;
+}
+.box-nineo {
+    background: #0B8E36  !important;
+    grid-area: 14 / 9 / 15 / 10;
+}
+
+
+
+
+/* other test */
+
+.box-one {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    background: blue;
+}
+
+.box-two {
+    /* grid-column: 1 / span 3; */
+    background: burlywood;
+    grid-row-start: 3;
+
+}
+
+.box-three,
+.box-four {
+    display: none;
+}
+
+.box-five {
+    grid-column-start: 6;
+    grid-column-end: -3;
+    background: green;
+}
+
+.box-six {
+    grid-column-start: 6;
+    grid-column-end: 2;
+    background: red;
+}
+
+.box-seven {
+    grid-column-start: 3;
+    grid-column-end: span 2;
+    background: yellow;
+}
+
+.box-eight {
+    grid-column: 5 / 5; /* starts on 5, ends on 5*/
+    grid-row: 4 / 5;
+    background: hotpink;
+}
+
+.box-nine {
+    grid-area: 5 / 1 / 6 / 3;
+    background: whitesmoke;
+    order: 1; /* this overlaps 15*/
+}
+
+.box-eleven {
+    grid-column: 4 / span 2; /* starts on 1, ends on 3*/
+    background: darkorchid;
+}
+
+
+.box-fifteen {
+    grid-area: 4 / 1 / 6 / 2;
+    background: dimgray;
+}
+
+.box-twentyone {
+    grid-area: 2 / 1 / 3 / 4;
+    background: black;
+    color: white;
+}
